@@ -105,7 +105,7 @@ public class SceneManager : SinglBehaviour<SceneManager>
         int SceneIndex = GetScene();
         if (SceneIndex == 1)//"ReadingRoom"
         {
-            FindObjectOfType<ReadingRoomManager>().SetAllInstance();
+            //FindObjectOfType<ReadingRoomManager>().SetAllInstance();
         }
         else if (SceneIndex == 0)//"MainMenu"
         {

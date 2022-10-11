@@ -3,11 +3,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Character/Character info", fileName = "CharInfo")]
 public class CharacterInformator : ScriptableObject
 {
-    [Tooltip("Name of unit")]
-    [SerializeField]
-    private string[] unitName;
-    public string Name { get { return unitName[(int)PlayerManager.Language]; } }
-
     [Tooltip("Sprite of unit")]
     [SerializeField]
     private Sprite sprite;
