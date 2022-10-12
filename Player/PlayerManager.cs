@@ -16,6 +16,6 @@ public static class PlayerManager
 
     public static void OnLoad()
     {
-        Account = SaveManager.PlayerAccount();
+        //Account = SaveManager.PlayerAccount();
     }
 }

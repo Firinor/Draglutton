@@ -1,13 +1,12 @@
 using System;
 using UnityEngine;
 
-public enum MenuMarks { baner, credits, saves, options, off };
+public enum MenuMarks { play, baner, credits, options, off };
 
 public class MainMenuManager : SinglBehaviour<MainMenuManager>, IScenePanel
 {
     private static GameObject baner;
     private static GameObject credits;
-    private static GameObject saves;
 
     private MainMenuInformator mainMenuInformator;
 
@@ -21,7 +20,6 @@ public class MainMenuManager : SinglBehaviour<MainMenuManager>, IScenePanel
 
         baner = MainMenuInformator.GetBaner();
         credits = MainMenuInformator.GetCredits();
-        saves = MainMenuInformator.GetSaves();
     }
 
     public static void SwitchPanels(MenuMarks mark)
@@ -29,14 +27,14 @@ public class MainMenuManager : SinglBehaviour<MainMenuManager>, IScenePanel
         instance.DiactiveAllPanels();
         switch (mark)
         {
+            case MenuMarks.play:
+                SceneManager.LoadScene("DragonRoom");
+                break;
             case MenuMarks.baner:
                 baner.SetActive(true);
                 break;
             case MenuMarks.credits:
                 credits.SetActive(true);
-                break;
-            case MenuMarks.saves:
-                saves.SetActive(true);
                 break;
             case MenuMarks.options:
                 SceneManager.SwitchPanels(SceneDirection.options);
@@ -58,10 +56,8 @@ public class MainMenuManager : SinglBehaviour<MainMenuManager>, IScenePanel
     {
         //baner.SetActive(false);
         credits.SetActive(false);
-        saves.SetActive(false);
         SceneManager.DiactiveAllPanels();
     }
-
     public void BasicPanelSettings()
     {
         SwitchPanels(MenuMarks.baner);

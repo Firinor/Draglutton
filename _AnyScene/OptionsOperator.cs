@@ -31,16 +31,16 @@ public class OptionsOperator : SinglBehaviour<OptionsOperator>
         bool v = toggle.isOn;
         OptionsManager.FullScreen = v;
 
-        if (!OnLoad)
-            SaveManager.SaveOptions();
+        if (!OnLoad) { }
+            //SaveManager.SaveOptions();
     }
     public void ScreenResolution(Dropdown dropdown)
     {
         int i = dropdown.value;
         OptionsManager.CurrentScreenResolution = OptionsManager.GetResolution(i);
 
-        if (!OnLoad)
-            SaveManager.SaveOptions(ScreenResolution: i);
+        if (!OnLoad) { }
+            //SaveManager.SaveOptions(ScreenResolution: i);
     }
     public void MasterVolume()
     {
@@ -50,8 +50,8 @@ public class OptionsOperator : SinglBehaviour<OptionsOperator>
         float volume = Mathf.Lerp(-80f, 0, curve.Evaluate(GetVolume()));
 
         mixerMasterGroup.audioMixer.SetFloat("MasterVolume", volume);
-        if (!OnLoad)
-            SaveManager.SaveOptions();
+        if (!OnLoad) { }
+            //SaveManager.SaveOptions();
     }
     public static float GetVolume()
     {
